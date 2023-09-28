@@ -1,6 +1,6 @@
 ---
 - name: Create folder in C:\temp
-  hosts: windows_host  # Replace with the target Windows host(s)
+  hosts: all  # Replace with the target Windows host(s)
   tasks:
     - name: Ensure C:\temp exists
       win_file:
