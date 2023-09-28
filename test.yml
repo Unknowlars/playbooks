@@ -1,6 +1,6 @@
 ---
 - name: Create a folder in the home directory
-  hosts: your_server  # Replace with the hostname or IP address of your target server
+  hosts: all  # Replace with the hostname or IP address of your target server
   become: yes  # Run tasks with sudo
 
   tasks:
