@@ -1,0 +1,14 @@
+---
+- name: Update Plex Media Server
+  hosts: all  # Replace with the hostname or IP address of your Plex server
+  become: yes  # Run tasks with sudo
+
+  tasks:
+    - name: Update Plex
+      shell: sudo apt-get update && sudo apt-get install plexmediaserver -y
+      # Replace with the appropriate package manager and package name if not using APT
+
+    - name: Restart Plex
+      systemd:
+        name: plexmediaserver
+        state: restarted
