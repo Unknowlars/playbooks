@@ -1,0 +1,11 @@
+---
+- name: Create a folder in the home directory
+  hosts: your_server  # Replace with the hostname or IP address of your target server
+  become: yes  # Run tasks with sudo
+
+  tasks:
+    - name: Create the "tester" folder
+      file:
+        path: /home/plex/tester  # Path to the folder
+        state: directory
+        mode: '0755'  # Adjust permissions as needed
