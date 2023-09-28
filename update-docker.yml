@@ -13,5 +13,6 @@
     - name: Update Docker containers
       docker_container:
         name: "{{ item.Name }}"
-        state: latest
+        image: "{{ item.Image }}"
+        state: started
       loop: "{{ running_containers.containers }}"
