@@ -1,0 +1,16 @@
+---
+- name: Update all Docker containers
+  hosts: all  # Replace with the hostname or IP address of your Docker host
+  become: yes  # Run tasks with sudo
+
+  tasks:
+    - name: Get a list of running Docker containers
+      command: docker ps --format "{{.Names}}"
+      register: docker_containers
+      changed_when: false  # Do not consider this task as changed
+
+#    - name: Update Docker containers
+#      docker_container:
+#        name: "{{ item }}"
+#        state: latest
+#      with_items: "{{ docker_containers.stdout_lines }}"
